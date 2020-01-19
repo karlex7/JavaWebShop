@@ -1,0 +1,10 @@
+SMAP
+menu_tag.java
+JSP
+*S JSP
+*F
++ 0 menu.tag
+WEB-INF/tags/menu.tag
+*L
+5,15:46
+*E

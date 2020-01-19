@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -12,26 +12,15 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(3);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
     _jspx_dependants.add("/WEB-INF/tlds/myTagLib.tld");
     _jspx_dependants.add("/WEB-INF/tags/menu.tag");
-    _jspx_dependants.add("/WEB-INF/tags/product.tag");
   }
-
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
-  }
-
-  public void _jspInit() {
-    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-  }
-
-  public void _jspDestroy() {
-    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -73,25 +62,32 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>\n");
       out.write("        <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <link href=\"css/menuStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
-      out.write("        <link href=\"css/product.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link href=\"css/loginStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
       if (_jspx_meth_fri_menu_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("        <div class=\"row\">   \n");
-      out.write("            <h1>All cars</h1>\n");
-      out.write("            <div class=\"row products\">\n");
-      out.write("                <ul>\n");
-      out.write("                ");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
-        return;
-      out.write("\n");
-      out.write("                </ul>\n");
+      out.write("        <div class=\"row\">\n");
+      out.write("            <h1>Login in Webshop </h1>\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <form class=\"needs-validation login-form\" action=\"login\" method=\"post\">\n");
+      out.write("                    <div class=\"row from-group\">\n");
+      out.write("                        <label for=\"username\" class=\"col-form-label\">Username</label>\n");
+      out.write("                        <input type=\"text\" class=\"form-control input-box\" name=\"username\" id=\"username\" required/>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"row form-group\">\n");
+      out.write("                        <label for=\"password\" class=\"col-form-label\">Password</label>\n");
+      out.write("                        <input type=\"password\" class=\"form-control input-box\" name=\"password\" id=\"password\" required/>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"row form-group\">\n");
+      out.write("                        <input type=\"submit\" class=\"btn btn-primary btn-login\" value=\"Login\"/>\n");
+      out.write("                    </div>\n");
+      out.write("                </form>\n");
       out.write("            </div>\n");
+      out.write("            \n");
       out.write("        </div>\n");
-      out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
@@ -115,60 +111,6 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.jsp.tag.web.menu_tag _jspx_th_fri_menu_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(org.apache.jsp.tag.web.menu_tag.class) : new org.apache.jsp.tag.web.menu_tag();
     _jspx_th_fri_menu_0.setJspContext(_jspx_page_context);
     _jspx_th_fri_menu_0.doTag();
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${products}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("item");
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\n");
-          out.write("                    <li>");
-          if (_jspx_meth_fri_product_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("</li>\n");
-          out.write("                    <hr>\n");
-          out.write("                ");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_fri_product_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fri:product
-    org.apache.jsp.tag.web.product_tag _jspx_th_fri_product_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(org.apache.jsp.tag.web.product_tag.class) : new org.apache.jsp.tag.web.product_tag();
-    _jspx_th_fri_product_0.setJspContext(_jspx_page_context);
-    _jspx_th_fri_product_0.setParent(_jspx_th_c_forEach_0);
-    _jspx_th_fri_product_0.setProduct((Model.Product) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item}", Model.Product.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_fri_product_0.doTag();
     return false;
   }
 }

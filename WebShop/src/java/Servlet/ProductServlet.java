@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author FRIDAY
  */
-@WebServlet(name = "ProductServlet", urlPatterns = {"/ProductServlet"})
+@WebServlet(name = "ProductServlet", urlPatterns = {"/products"})
 public class ProductServlet extends HttpServlet {
 
     /**
@@ -66,7 +66,7 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         IRepo repo=RepoFactory.getRepo();
         
-        request.getSession().setAttribute("products", repo.getAllProducts());
+        //request.getSession().setAttribute("products", repo.getAllProducts());
         RequestDispatcher rd=getServletContext().getRequestDispatcher("/products.jsp");
         rd.forward(request, response);
     }

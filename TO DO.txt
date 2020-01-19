@@ -1,0 +1,27 @@
+
+
+
+*******************************************************
+*******************J A V A   W E B*********************
+*******************************************************
+
+        T A G S
+
+1. Napraviti Menu
+	1.1 Menu kad nisi ulogiran
+	1.2 Menu kad jesi ulogiran
+	1.3 Admin menu
+2. Napraviti footer
+3. Napraviti login tag
+4. Naprviti product tag
+
+
+      J S P pocetak
+1. Login page
+2. Register page
+3. ErrorPage
+
+      J S P part 1
+1. Home page
+2. Products page
+3. Bag page
