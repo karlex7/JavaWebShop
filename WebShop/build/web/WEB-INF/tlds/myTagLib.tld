@@ -20,18 +20,20 @@
           <listener-class>com.mycompany.TagLibListener</listener-class> 
       </listener>
     -->
-    
-    <tag-file>
-        <name>menu</name>
-        <path>/WEB-INF/tags/menu.tag</path>
-    </tag-file>
-    <tag-file>
-        <name>products</name>
-        <path>/WEB-INF/tags/products.tag</path>
-    </tag-file>
-    <tag-file>
-        <name>product</name>
-        <path>/WEB-INF/tags/product.tag</path>
-    </tag-file>
-
+  <tag-file>
+    <name>menu</name>
+    <path>/WEB-INF/tags/menu.tag</path>
+  </tag-file>
+  <tag-file>
+    <name>products</name>
+    <path>/WEB-INF/tags/products.tag</path>
+  </tag-file>
+  <tag-file>
+    <name>product</name>
+    <path>/WEB-INF/tags/product.tag</path>
+  </tag-file>
+  <tag-file>
+    <name>productBag</name>
+    <path>/WEB-INF/tags/productBag.tag</path>
+  </tag-file>
 </taglib>

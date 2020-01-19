@@ -17,15 +17,18 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/menuStyle.css" rel="stylesheet" type="text/css"/>
-        <link href="css/products.css" rel="stylesheet" type="text/css"/>
+        <link href="css/productBag.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <fri:menu></fri:menu>
-        <h1>Shopping bag</h1>
         <div class="row">
-            <ul>
-                ${bagSession.product.Title}
-            </ul>
+            <h1>Shopping bag</h1>
+            <div class="row">
+                    <c:forEach items="${bagSession}" var="item">
+                        <fri:productBag product="${item}"></fri:productBag>
+                    </c:forEach>
+            </div>
         </div>
+        
     </body>
 </html>

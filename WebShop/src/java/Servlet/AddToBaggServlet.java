@@ -45,24 +45,24 @@ public class AddToBaggServlet extends HttpServlet {
             p = null;
             e.printStackTrace();
         }
-        BagItem bagItem=new BagItem(p, 1);
+        
         
         //Dohvati Bag Session
-        List<BagItem> bagSession=(List<BagItem>) request.getSession().getAttribute("bagSession");
+        List<Product> bagSession=(List<Product>) request.getSession().getAttribute("bagSession");
         if (bagSession!=null) {
             //Maknemo proizvod ako je vec u kosarici
-            for (BagItem b : bagSession) {
-                if (b.getProduct().getIDProduct()==bagItem.getProduct().getIDProduct()) {
-                    bagSession.remove(b);
+            for (Product b : bagSession) {
+                if (b.getIDProduct()==p.getIDProduct()) {
+                   // bagSession.remove(b);
                 }
             }
             //Dodamo proizvod ali jedan
-            bagSession.add(bagItem);
+            bagSession.add(p);
             request.getSession().setAttribute("bagSession", bagSession);
         }
         else{
-            List<BagItem> bagSessionNew=new ArrayList<>();
-            bagSessionNew.add(bagItem);
+            List<Product> bagSessionNew=new ArrayList<>();
+            bagSessionNew.add(p);
             request.getSession().setAttribute("bagSession", bagSessionNew);
         }
         response.sendRedirect("bag.jsp");
