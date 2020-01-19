@@ -23,9 +23,10 @@
         <fri:menu></fri:menu>
         <div class="row">
             <h1>Shopping bag</h1>
-            <div class="row">
+            <div class="row product-bag">
                     <c:forEach items="${bagSession}" var="item">
-                        <fri:productBag product="${item}"></fri:productBag>
+                        <fri:productBag bagItem="${item}"></fri:productBag>
+                        <hr>
                     </c:forEach>
             </div>
         </div>

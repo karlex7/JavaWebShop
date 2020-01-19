@@ -7,33 +7,29 @@
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@attribute name="product" type="Model.Product" required="true" %>
+<%@attribute name="bagItem" type="Model.BagItem" required="true" %>
 
 
 <div class="product">
     <table class="big-table">
         <tr>
-            <td><img src="https://www.tportal.hr/media/thumbnail/w1000/525457.jpeg"  class="img-product"/></td><!--src="${product.img}"-->
+            <td><img src="https://www.tportal.hr/media/thumbnail/w1000/525457.jpeg"  class="img-product"/></td><!--src="${bagItem.product.img}"-->
             
             <td>
                 <table class="small-table" >
                     <tr>
-                        <td>${product.brand}</td>
-                        <td>${product.title}</td>
+                        <td>${bagItem.product.brand}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            ${product.about}
-                        </td>
+                        <td>${bagItem.product.title}</td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>${product.price}</td>
+                        <td>${bagItem.product.price}</td>
                     </tr>
                 </table>
             </td>
             <td>
-                Kolcina
+                Kolcina : ${bagItem.quantity}
             </td>
         </tr>
     </table>

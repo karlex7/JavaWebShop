@@ -29,14 +29,8 @@ public class AddToBaggServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
         //Dohvati product koji treba u kosaricu
-        int idProduct=Integer.parseInt(request.getParameter("idProduct"));
+        /*int idProduct=Integer.parseInt(request.getParameter("idProduct"));
         Product p;
         IRepo repo=RepoFactory.getRepo();
         try {
@@ -63,6 +57,49 @@ public class AddToBaggServlet extends HttpServlet {
         else{
             List<Product> bagSessionNew=new ArrayList<>();
             bagSessionNew.add(p);
+            request.getSession().setAttribute("bagSession", bagSessionNew);
+        }
+        response.sendRedirect("bag.jsp");*/
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        //Dohvati product koji treba u kosaricu
+        int idProduct=Integer.parseInt(request.getParameter("idProduct"));
+        Product p;
+        IRepo repo=RepoFactory.getRepo();
+        try {
+            p = repo.getProduct(idProduct);
+        } catch (Exception e) {
+            p = null;
+            e.printStackTrace();
+        }
+        
+        BagItem bagItem=new BagItem(p, 1);
+        List<BagItem> bagSession=(List<BagItem>) request.getSession().getAttribute("bagSession");
+        boolean alreagyInBag=true;
+        
+        if (bagSession!=null) {
+            
+            for (BagItem b : bagSession) {
+                if (b.getProduct().getIDProduct()==idProduct) {
+                    int quantity=b.getQuantity();
+                    quantity++;
+                    b.setQuantity(quantity);
+                    alreagyInBag=false;
+                }
+            }
+            if (alreagyInBag) {
+                bagSession.add(bagItem);
+            }
+            
+            request.getSession().setAttribute("bagSession", bagSession);
+        }
+        else{
+            List<BagItem> bagSessionNew=new ArrayList<>();
+            bagSessionNew.add(bagItem);
             request.getSession().setAttribute("bagSession", bagSessionNew);
         }
         response.sendRedirect("bag.jsp");
