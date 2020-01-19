@@ -172,6 +172,7 @@ public class DBRepo implements IRepo{
             CallableStatement stmt=con.prepareCall(GET_PRODUCT);){
             stmt.setInt(1, id);
             try (ResultSet resultSet=stmt.executeQuery()){
+                 if (resultSet.next()){
                 return new Product(
                         resultSet.getInt("IDProduct"),
                         resultSet.getString("Title"), 
@@ -180,7 +181,7 @@ public class DBRepo implements IRepo{
                         resultSet.getFloat("Price"),
                         resultSet.getString("Img"), 
                         resultSet.getInt("CatgoryID"));
-            } catch (Exception e) {
+            }} catch (Exception e) {
             }
         } catch (Exception e) {
             e.printStackTrace();

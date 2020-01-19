@@ -1,6 +1,6 @@
 <%-- 
-    Document   : products
-    Created on : Jan 17, 2020, 12:58:25 PM
+    Document   : bag
+    Created on : Jan 19, 2020, 5:08:00 PM
     Author     : FRIDAY
 --%>
 
@@ -21,17 +21,11 @@
     </head>
     <body>
         <fri:menu></fri:menu>
-        <div class="row">   
-            <h1>All cars</h1>
-            <div class="row products">
-                <ul>
-                <c:forEach items="${products}" var="item">
-                    <li><fri:products product="${item}"></fri:products></li>
-                    <hr>
-                </c:forEach>
-                </ul>
-            </div>
+        <h1>Shopping bag</h1>
+        <div class="row">
+            <ul>
+                ${bagSession.product.Title}
+            </ul>
         </div>
-        
     </body>
 </html>

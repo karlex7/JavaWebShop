@@ -1,6 +1,6 @@
 <%-- 
     Document   : product
-    Created on : Jan 18, 2020, 8:48:03 PM
+    Created on : Jan 19, 2020, 1:38:37 PM
     Author     : FRIDAY
 --%>
 
@@ -11,27 +11,18 @@
 
 
 <div class="product">
-    <table class="big-table">
-        <tr>
-            <td><img src="${product.img}" class="img-product"/></td>
-            
-            <td>
-                <table class="small-table" >
-                    <tr>
-                        <td>${product.brand}</td>
-                        <td>${product.title}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            ${product.about}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>${product.price}</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <div class="row">
+        <img src="https://www.tportal.hr/media/thumbnail/w1000/525457.jpeg"  class="img-product"/></td><!--src="${product.img}"-->
+    </div>
+    <div class="row">
+        <div class="row product-info">Title: ${product.title}</div>
+        <div class="row product-info">Brand: ${product.brand}</div>
+        <div class="row product-info">About: ${product.about}</div>
+        <div class="row product-info">Price: ${product.price}€</div>
+    </div>
+           
+    <form class="form-add" action="addBag" method="post">
+        <input type="hidden" name="idProduct" value="${product.IDProduct}"/>
+        <button type="submit" class="btn btn-primary btn-add">Add</button>
+    </form>
 </div>

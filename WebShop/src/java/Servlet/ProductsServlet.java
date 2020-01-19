@@ -5,10 +5,11 @@
  */
 package Servlet;
 
+import DAL.DBRepo;
 import DAL.IRepo;
 import DAL.RepoFactory;
-import Model.Product;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,32 +21,23 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author FRIDAY
  */
-@WebServlet(name = "ProductServlet", urlPatterns = {"/product"})
-public class ProductServlet extends HttpServlet {
+@WebServlet(name = "ProductsServlet", urlPatterns = {"/products"})
+public class ProductsServlet extends HttpServlet {
 
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        IRepo repo=RepoFactory.getRepo();
+        
+        request.getSession().setAttribute("products", repo.getAllProducts());
+        RequestDispatcher rd=getServletContext().getRequestDispatcher("/products.jsp");
+        rd.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        int idProduct=Integer.parseInt(request.getParameter("idProduct"));
-        Product p;
-        IRepo repo=RepoFactory.getRepo();
-        
-        try {
-            p = repo.getProduct(idProduct);
-        } catch (Exception e) {
-            p = null;
-            e.printStackTrace();
-        }
-
-        request.getSession().setAttribute("product", p);
-        RequestDispatcher rd=getServletContext().getRequestDispatcher("/product.jsp");
-        rd.forward(request, response);
     }
+
 }
-    

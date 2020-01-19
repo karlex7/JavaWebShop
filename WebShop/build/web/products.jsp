@@ -17,7 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/menuStyle.css" rel="stylesheet" type="text/css"/>
-        <link href="css/product.css" rel="stylesheet" type="text/css"/>
+        <link href="css/products.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <fri:menu></fri:menu>
@@ -26,7 +26,7 @@
             <div class="row products">
                 <ul>
                 <c:forEach items="${products}" var="item">
-                    <li><fri:product product="${item}"></fri:product></li>
+                    <li><fri:products product="${item}"></fri:products></li>
                     <hr>
                 </c:forEach>
                 </ul>

@@ -5,8 +5,6 @@
  */
 package Model;
 
-import javafx.scene.chart.CategoryAxisBuilder;
-
 /**
  *
  * @author FRIDAY

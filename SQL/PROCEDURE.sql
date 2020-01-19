@@ -89,7 +89,7 @@ go
 CREATE PROC GET_PRODUCT
 @id int
 as
-select*from Product
+select IDProduct, Title, Brand, About, Price, Img, CatgoryID from Product
 where IDProduct=@id
 go
 
