@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
             Utils.Utils.createLog(username, request);
             response.sendRedirect("home.jsp");
         }else if(username.equalsIgnoreCase(ADMIN_USERNAME) && password.equalsIgnoreCase(ADMIN_PASSWORD)){
-            request.setAttribute("admin", "admin");
+            request.getSession().setAttribute("admin", ADMIN_USERNAME);
             response.sendRedirect("home.jsp");
         }else{
             response.sendRedirect("login.jsp");

@@ -14,6 +14,9 @@
         <ul>
             <li><a href="home.jsp">Home</a></li>
             <li><a href="products">Products</a></li>
+            <c:if test="${sessionScope.admin != null}">
+            <a href="admin/logging" id="btnAdmin" style="margin-right:5px" class="btn btn-primary btn-sm myButton">Admin Page</a>
+            </c:if>
             <c:if test="${sessionScope.username != null}">
                 <form action="user" method="post">
                     <button type="submit" style="margin-right:5px;margin-top: 15px" class="btn btn-primary btn-sm myButton">${sessionScope.username}</button>
