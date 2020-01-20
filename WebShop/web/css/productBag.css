@@ -36,3 +36,13 @@ and open the template in the editor.
 .bag-manipulation{
     margin-left: 20px;
 }
+
+.totalSum{
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.btn-checkout{
+    margin-top: 10px;
+    text-align: right;
+}

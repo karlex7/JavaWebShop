@@ -43,6 +43,27 @@ Values('Raptor','Ford','Prodaje se Ford Raptor 2015',90000,5)
 Insert into Product(Title,Brand,About,Price,CatgoryID)
 Values('911','Porsche','Prodaje se Porsche 911 2020',120000,6)
 
+--UPDATE za slike
+
+Update Product
+set Img='img/Bmw-420xd.jpg'
+where IDProduct=1
+Update Product
+set Img='img/Audi-a1.jpg'
+where IDProduct=2
+Update Product
+set Img='img/Mercedes-c250.jpeg'
+where IDProduct=3
+Update Product
+set Img='img/VW-touareg.jpg'
+where IDProduct=4
+Update Product
+set Img='img/Ford-raptor.jpg'
+where IDProduct=5
+Update Product
+set Img='img/Porsche-911.jpg'
+where IDProduct=6
+
 select*from Product
 
 Insert into PaymentMethod(PaymentMethodName)

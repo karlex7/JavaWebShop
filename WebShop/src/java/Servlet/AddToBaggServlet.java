@@ -94,7 +94,6 @@ public class AddToBaggServlet extends HttpServlet {
             if (alreagyInBag) {
                 bagSession.add(bagItem);
             }
-            
             request.getSession().setAttribute("bagSession", bagSession);
         }
         else{
@@ -102,6 +101,9 @@ public class AddToBaggServlet extends HttpServlet {
             bagSessionNew.add(bagItem);
             request.getSession().setAttribute("bagSession", bagSessionNew);
         }
+        
+        float sum=Utils.Utils.calculateTotalSum(bagSession);
+        request.getSession().setAttribute("sum", sum);
         response.sendRedirect("bag.jsp");
     }
 

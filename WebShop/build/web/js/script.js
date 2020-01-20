@@ -11,3 +11,6 @@ function bagAddOne(IDProduct){
 function bagRemoveOne(IDProduct){  
     location.href="remove?idProduct="+IDProduct;
 }
+function checkout(){
+    location.href="checkout";
+}

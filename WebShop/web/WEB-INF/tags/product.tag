@@ -12,7 +12,7 @@
 
 <div class="product">
     <div class="row">
-        <img src="https://www.tportal.hr/media/thumbnail/w1000/525457.jpeg"  class="img-product"/></td><!--src="${product.img}"-->
+        <img src="${product.img}" class="img-product"/></td><!--src="${product.img}"-->
     </div>
     <div class="row">
         <div class="row product-info">Title: ${product.title}</div>

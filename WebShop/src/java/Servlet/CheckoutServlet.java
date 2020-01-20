@@ -5,8 +5,11 @@
  */
 package Servlet;
 
+import Model.BagItem;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,27 +20,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author FRIDAY
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
-
-    private static final String ADMIN_USERNAME = "admin";
-    private static final String ADMIN_PASSWORD = "admin";
+@WebServlet(name = "CheckoutServlet", urlPatterns = {"/checkout"})
+public class CheckoutServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        RequestDispatcher rd=getServletContext().getRequestDispatcher("/checkout.jsp");
+        rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String username=request.getParameter("username");
-        
-        request.getSession().setAttribute("username", username);
-        
-        //getServletContext().getRequestDispatcher("/test.jsp").forward(request, response);
-        response.sendRedirect("home.jsp");
     }
 
 }

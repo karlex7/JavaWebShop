@@ -13,7 +13,7 @@
 <div class="product">
     <table class="big-table">
         <tr>
-            <td><img src="https://www.tportal.hr/media/thumbnail/w1000/525457.jpeg"  class="img-product"/></td><!--src="${bagItem.product.img}"-->
+            <td><img src="${bagItem.product.img}" class="img-product"/></td><!--src="${bagItem.product.img}"-->
             
             <td>
                 <table class="small-table" >

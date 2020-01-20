@@ -14,6 +14,21 @@
         <ul>
             <li><a href="home.jsp">Home</a></li>
             <li><a href="products">Products</a></li>
+            <c:if test="${sessionScope.username != null}">
+                <form action="user" method="post">
+                    <button type="submit" style="margin-right:5px;margin-top: 15px" class="btn btn-primary btn-sm myButton">${sessionScope.username}</button>
+                    <input type="hidden" value="${sessionScope.username}" name="username"/>
+                </form>
+            </c:if>
+            <c:choose>
+            <c:when test="${sessionScope.username == null && sessionScope.admin == null}">
+                <a class="btn btn-primary btn-sm myButton" href="login.jsp">Login</a>
+            </c:when>
+            <c:otherwise>
+                <a class="btn btn-outline-danger btn-sm myButton" href="logout">Logout</a>
+            </c:otherwise>
+        </c:choose>
+
         </ul>
     </div>
 </nav>

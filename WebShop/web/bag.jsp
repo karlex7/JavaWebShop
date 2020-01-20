@@ -30,6 +30,13 @@
                         <hr>
                     </c:forEach>
             </div>
+            
+            <div class="row totalSum">
+                Total: ${sum} €
+            </div>
+            <div class="row btn-checkout">
+                <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+            </div>
         </div>
         
     </body>

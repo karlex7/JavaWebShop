@@ -43,6 +43,8 @@ public class BagRemoveOne extends HttpServlet {
         
         bagSession.remove(bRemove);
         request.getSession().setAttribute("bagSession", bagSession);
+        float sum=Utils.Utils.calculateTotalSum(bagSession);
+        request.getSession().setAttribute("sum", sum);
         
         response.sendRedirect("bag.jsp");
     }

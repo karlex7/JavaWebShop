@@ -45,6 +45,8 @@ public class BagAddOne extends HttpServlet {
             }
         }
         
+        float sum=Utils.Utils.calculateTotalSum(bagSession);
+        request.getSession().setAttribute("sum", sum);
         response.sendRedirect("bag.jsp");
     }
 
