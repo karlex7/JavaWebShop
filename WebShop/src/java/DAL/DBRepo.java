@@ -345,5 +345,16 @@ public class DBRepo implements IRepo{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean checkCustomer(String email, String password) {
+        List<Customer> customers=getAllCustomers();
+        for (Customer customer : customers) {
+            if (customer.getEmail().equals(email) && customer.getCustomerPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

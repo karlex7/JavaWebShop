@@ -5,6 +5,8 @@
  */
 package Servlet;
 
+import DAL.IRepo;
+import DAL.RepoFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,13 +33,26 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        IRepo repo=RepoFactory.getRepo();
         
         String username=request.getParameter("username");
+        String password=request.getParameter("password");
         
-        request.getSession().setAttribute("username", username);
+        if (repo.checkCustomer(username, password)) {
+            request.getSession().setAttribute("username", username);
+            
+            Utils.Utils.createLog(username, request);
+            response.sendRedirect("home.jsp");
+        }else if(username.equalsIgnoreCase(ADMIN_USERNAME) && password.equalsIgnoreCase(ADMIN_PASSWORD)){
+            request.setAttribute("admin", "admin");
+            response.sendRedirect("home.jsp");
+        }else{
+            response.sendRedirect("login.jsp");
+        }
+        
         
         //getServletContext().getRequestDispatcher("/test.jsp").forward(request, response);
-        response.sendRedirect("home.jsp");
+        
     }
 
 }

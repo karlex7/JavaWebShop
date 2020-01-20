@@ -6,7 +6,9 @@
 package Utils;
 
 import Model.BagItem;
+import Model.Customer;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -21,7 +23,9 @@ public class Utils {
                 sum+=bagItem.getProduct().getPrice()*bagItem.getQuantity();
             }
         }
-        
         return sum;
+    }
+    public static void createLog(String username,HttpServletRequest request){
+        
     }
 }

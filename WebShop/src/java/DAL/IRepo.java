@@ -17,6 +17,7 @@ public interface IRepo {
     void insertCustomer(Customer c);
     List<Customer> getAllCustomers();
     Customer getCustomer(int id);
+    boolean checkCustomer(String email, String password);
     //-------------CATEGORY--------------
     List<Category> getAllCategory();
     //-------------PRODUCT---------------
