@@ -8,11 +8,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav>
     <div class="logo-area">
-        <a href="#"><img class="logo" src="img/logo.png" alt="Logo"/></a>
+        <a href="home.jsp"><img class="logo" src="img/logo.png" alt="Logo"/></a>
     </div>
     <div class="main-nav">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="home.jsp">Home</a></li>
             <li><a href="products">Products</a></li>
         </ul>
     </div>

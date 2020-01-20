@@ -5,3 +5,7 @@
  */
 
 
+function bagAddOne(IDProduct){
+    
+    location.href='home.jsp';
+}

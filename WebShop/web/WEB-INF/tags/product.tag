@@ -18,7 +18,7 @@
         <div class="row product-info">Title: ${product.title}</div>
         <div class="row product-info">Brand: ${product.brand}</div>
         <div class="row product-info">About: ${product.about}</div>
-        <div class="row product-info">Price: ${product.price}€</div>
+        <div class="row product-info">Price: ${product.price} €</div>
     </div>
            
     <form class="form-add" action="addBag" method="post">

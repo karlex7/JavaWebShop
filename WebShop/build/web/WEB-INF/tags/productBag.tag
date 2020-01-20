@@ -24,12 +24,18 @@
                         <td>${bagItem.product.title}</td>
                     </tr>
                     <tr>
-                        <td>${bagItem.product.price}</td>
+                        <td>${bagItem.product.price} €</td>
                     </tr>
                 </table>
             </td>
             <td>
-                Kolcina : ${bagItem.quantity}
+                Quantity : ${bagItem.quantity}
+            </td>
+            <td>
+                <div class="bag-manipulation">
+                    <button class="btn btn-light" style="width: 35px" onclick="bagAddOne(this.value)" value="${bagItem.product.IDProduct}">+</button>
+                    <input type="button" value="-" class="btn btn-light" style="width: 35px"/>
+                </div>
             </td>
         </tr>
     </table>

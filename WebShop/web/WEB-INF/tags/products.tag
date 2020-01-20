@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
-                        <td>${product.price}</td>
+                        <td>${product.price} €</td>
                     </tr>
                 </table>
             </td>
