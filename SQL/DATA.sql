@@ -14,6 +14,7 @@ Values ('Filip','Hren','Hum Stubicki 3 Gornja Stubica 49245','filip@email.hr','1
 Insert into Customer(FirstName,LastName,Adress,Email,CustomerPassword)
 Values ('Soni','Hren','Hum Stubicki 4 Gornja Stubica 49245','soni@email.hr','123')
 
+select*from Customer
 
 Insert into Category(Title)
 Values('Coupe')

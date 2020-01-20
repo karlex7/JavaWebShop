@@ -14,3 +14,6 @@ function bagRemoveOne(IDProduct){
 function checkout(){
     location.href="checkout";
 }
+function showBag(){
+    location.href="bag.jsp";
+}
