@@ -65,7 +65,7 @@ public class AddToBaggServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        float sum;
         //Dohvati product koji treba u kosaricu
         int idProduct=Integer.parseInt(request.getParameter("idProduct"));
         Product p;
@@ -95,14 +95,17 @@ public class AddToBaggServlet extends HttpServlet {
                 bagSession.add(bagItem);
             }
             request.getSession().setAttribute("bagSession", bagSession);
+            
+            sum=Utils.Utils.calculateTotalSum(bagSession);
         }
         else{
             List<BagItem> bagSessionNew=new ArrayList<>();
             bagSessionNew.add(bagItem);
             request.getSession().setAttribute("bagSession", bagSessionNew);
+            sum=Utils.Utils.calculateTotalSum(bagSessionNew);
         }
         
-        float sum=Utils.Utils.calculateTotalSum(bagSession);
+        
         request.getSession().setAttribute("sum", sum);
         response.sendRedirect("bag.jsp");
     }
