@@ -34,7 +34,7 @@
             <td>
                 <div class="bag-manipulation">
                     <button class="btn btn-light" style="width: 35px" onclick="bagAddOne(this.value)" value="${bagItem.product.IDProduct}">+</button>
-                    <input type="button" value="-" class="btn btn-light" style="width: 35px"/>
+                    <button class="btn btn-light" style="width: 35px" onclick="bagRemoveOne(this.value)" value="${bagItem.product.IDProduct}">-</button>
                 </div>
             </td>
         </tr>

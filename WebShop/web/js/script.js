@@ -5,7 +5,9 @@
  */
 
 
-function bagAddOne(IDProduct){
-    
-    location.href='home.jsp';
+function bagAddOne(IDProduct){  
+    location.href="add?idProduct="+IDProduct;
+}
+function bagRemoveOne(IDProduct){  
+    location.href="remove?idProduct="+IDProduct;
 }
