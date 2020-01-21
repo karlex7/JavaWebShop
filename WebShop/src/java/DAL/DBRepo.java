@@ -39,6 +39,7 @@ public class DBRepo implements IRepo{
     private static final String GET_ALL_BILLS="{ CALL  GET_ALL_BILLS ()}";
     private static final String INSERT_BILL="{ CALL  INSERT_BILL (?,?,?)}";
     private static final String GET_BILL="{ CALL  GET_BILL (?)}";
+    private static final String GET_BILLS_FOR_CUSTOMER="{ CALL  GET_BILLS_FOR_CUSTOMER (?)}";
     
     private static final String GET_ITEMS_FOR_BILL="{ CALL  GET_ITEMS_FOR_BILL (?)}";
     private static final String INSERT_ITEM="{ CALL  INSERT_ITEM (?,?,?)}";
@@ -71,7 +72,6 @@ public class DBRepo implements IRepo{
         try (Connection con=dataSource.getConnection();
             CallableStatement stmt=con.prepareCall(GET_ALL_CUSTOMERS);
             ResultSet resultSet=stmt.executeQuery()){
-            
             while (resultSet.next()) {
                 customers.add(
                 new Customer(
@@ -266,6 +266,30 @@ public class DBRepo implements IRepo{
         }
         return null;
     }
+    
+    @Override
+    public List<Bill> getBillsForCustomer(int id) {
+        List<Bill> bills=new ArrayList<>();
+        DataSource dataSource=DataSourceSingleton.getInstance();
+        try (Connection con=dataSource.getConnection();
+            CallableStatement stmt=con.prepareCall(GET_BILLS_FOR_CUSTOMER)){
+            stmt.setInt(1, id);
+            try (ResultSet resultSet=stmt.executeQuery()){
+            while (resultSet.next()) {
+                bills.add(
+                        new Bill(
+                                resultSet.getInt("IDBill"), 
+                                resultSet.getDate("BillDate"), 
+                                resultSet.getInt("CustomerID"), 
+                                resultSet.getInt("PaymentMethodID"))
+                );
+            }
+            return bills;
+        }}catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bills;
+    }
 
     @Override
     public List<Item> getItemsForBill(int id) {
@@ -356,5 +380,7 @@ public class DBRepo implements IRepo{
         }
         return false;
     }
+
+    
     
 }

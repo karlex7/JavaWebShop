@@ -79,6 +79,7 @@ public class Bill {
         return s;
     }
 
+
     @Override
     public String toString() {
         return "Bill{" + "BillDate=" + BillDate + ", CustomerID=" + CustomerID + ", PaymentMethodID=" + PaymentMethodID + '}';

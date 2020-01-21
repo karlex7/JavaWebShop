@@ -20,6 +20,7 @@ BILL
 	GET_ALL_BILLS
 	INSERT_BILL
 	GET_BILL
+	GET_BILLS_FOR_CUSTOMER
 ITEM
 	GET_ITEMS_FOR_BILL
 	INSERT_ITEM
@@ -43,9 +44,10 @@ Insert into Customer(FirstName,LastName,Adress,Email,CustomerPassword)
 Values(@FirstName,@LastName,@Adress,@Email,@CustomerPassword)
 go
 
+
 CREATE PROC GET_ALL_CUSTOMERS
 as
-select*from Customer
+select IDCustomer,FirstName,LastName,Adress,Email,CustomerPassword from Customer
 go
 
 CREATE PROC GET_CUSTOMER
@@ -124,6 +126,13 @@ CREATE PROC GET_BILL
 as
 select*from Bill
 where IDBill=@id
+go
+
+CREATE PROC GET_BILLS_FOR_CUSTOMER
+@id int
+as
+select*from Bill
+where CustomerID=@id
 go
 
 /***************************************************/

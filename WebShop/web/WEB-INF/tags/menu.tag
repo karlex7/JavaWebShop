@@ -16,7 +16,7 @@
             <li><a href="products">Products</a></li>
             <li>
                 <c:if test="${sessionScope.admin != null}">
-                    <a href="admin/logging" id="btnAdmin" style="margin-right:5px" class="btn btn-primary btn-sm myButton">Admin Page</a>
+                    <a href="admin/logging" id="btnAdmin" style="margin-right:5px" class="btn">Admin Page</a>
                 </c:if>
             </li>
             <!--<c:if test="${sessionScope.username != null}">

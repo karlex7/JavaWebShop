@@ -5,6 +5,8 @@
  */
 package Utils;
 
+import DAL.IRepo;
+import DAL.RepoFactory;
 import Model.BagItem;
 import Model.Customer;
 import java.util.List;
@@ -27,5 +29,28 @@ public class Utils {
     }
     public static void createLog(String username,HttpServletRequest request){
         
+    }
+    public static boolean usernameUnique(String email){
+        IRepo repo=RepoFactory.getRepo();
+        
+        List<Customer> customers=repo.getAllCustomers();
+        for (Customer customer : customers) {
+            if (customer.getEmail().equals(email)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static Customer getCustomerFromEmail(String emial){
+        Customer c=null;
+        IRepo repo=RepoFactory.getRepo();
+        List<Customer> customers=repo.getAllCustomers();
+        for (Customer customer : customers) {
+            if (customer.getEmail().equals(emial)) {
+                return customer;
+            }
+        }
+        c.setFirstName("ime");
+        return c;
     }
 }

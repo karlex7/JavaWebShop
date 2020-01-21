@@ -29,6 +29,7 @@ public interface IRepo {
     List<Bill> getAllBills();
     void insertBill(Bill b);
     Bill getBill(int id);
+    List<Bill> getBillsForCustomer(int id);
     //---------------ITEM----------------
     List<Item> getItemsForBill(int id);
     void insertItem(Item i);

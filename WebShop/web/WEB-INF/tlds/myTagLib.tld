@@ -36,4 +36,8 @@
     <name>productBag</name>
     <path>/WEB-INF/tags/productBag.tag</path>
   </tag-file>
+  <tag-file>
+    <name>bill</name>
+    <path>/WEB-INF/tags/bill.tag</path>
+  </tag-file>
 </taglib>

@@ -8,10 +8,8 @@ package Servlet;
 import DAL.IRepo;
 import DAL.RepoFactory;
 import Model.Bill;
-import Model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,36 +21,27 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author FRIDAY
  */
-@WebServlet(name = "UserServlet", urlPatterns = {"/user"})
-public class UserServlet extends HttpServlet {
-
+@WebServlet(name = "viewBillServlet", urlPatterns = {"/viewBill"})
+public class viewBillServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String  username=request.getParameter("username");
+        
+        int idBill=Integer.parseInt(request.getParameter("idBill"));
         
         IRepo repo=RepoFactory.getRepo();
-        Customer c=Utils.Utils.getCustomerFromEmail(username);
-        List<Bill> bills=repo.getBillsForCustomer(c.getIDCustomer());
-        Customer customer=new Customer(c.getIDCustomer(), c.getFirstName(),c.getLastName(),c.getAdress(),c.getEmail(),c.getCustomerPassword());
+        Bill bill=repo.getBill(idBill);
         
+        request.setAttribute("bill",bill);
         
-        
-        
-        
-        request.getSession().setAttribute("bills", bills);
-        request.getSession().setAttribute("customer",customer);
-        
-        RequestDispatcher rd=getServletContext().getRequestDispatcher("/user.jsp");
+        RequestDispatcher rd=getServletContext().getRequestDispatcher("/bill.jsp");
         rd.forward(request, response);
-        //response.sendRedirect("user.jsp");
     }
 
 }
