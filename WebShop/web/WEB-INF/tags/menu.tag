@@ -33,6 +33,11 @@
                 </c:otherwise>
                 </c:choose>
             </li>
+            <li>
+                <c:if test="${sessionScope.username == null && sessionScope.admin == null}">
+                    <a class="btn" href="singup.jsp">Singup</a>
+                </c:if>
+            </li>
             
             <c:if test="${sessionScope.username != null}">
                 <form action="user" method="post">
