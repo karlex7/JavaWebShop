@@ -18,8 +18,14 @@
             <c:otherwise>Bitcoin</c:otherwise>
         </c:choose>
             &nbsp;|&nbsp; 
-        <form action="viewBill" method="post">
+            <form action="viewBill" method="post">
+                <input type="hidden" name="idBill" value="${bill.IDBill}"/>
+                <button type="submit" class="btn btn-primary" style="margin-left: 20px">View items</button>
+            </form>
+            <!--<a href="viewBill?idBill=${bill.IDBill}">View Bill</a>-->
+        <!--<button class="btn btn-light" onclick="viewBill(this.value)" value="${bill.IDBill}">View Bill</button>-->
+        <!--<form action="viewBill" method="post">
             <button type="submit" name="idBill" value="${bill.IDBill}" class="btn-link">View bill</button>
-        </form>
+        </form>-->
     </p>
 </div>

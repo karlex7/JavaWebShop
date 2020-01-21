@@ -17,3 +17,6 @@ function checkout(){
 function showBag(){
     location.href="bag.jsp";
 }
+function viewBill(IDBill){
+    location.href="viewBill?idBill"+IDBill;
+}
