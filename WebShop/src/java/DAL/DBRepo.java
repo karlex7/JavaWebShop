@@ -361,7 +361,7 @@ public class DBRepo implements IRepo{
                         new LogInfo(
                                 resultSet.getInt("IDLogInfo"), 
                                 resultSet.getInt("CustomerID"), 
-                                resultSet.getDate("LogDate"), 
+                                resultSet.getString("LogDate"), 
                                 resultSet.getString("IPAdress"))
                 );
             }
@@ -378,7 +378,7 @@ public class DBRepo implements IRepo{
         try (Connection con=dataSource.getConnection();
             CallableStatement stmt=con.prepareCall(INSERT_LOGINFO)){
                 stmt.setInt(1, logInfo.getCustomerID());
-                stmt.setDate(2, (java.sql.Date) logInfo.getLogDate());
+                stmt.setString(2, logInfo.getLogDate());
                 stmt.setString(3, logInfo.getIPAdress());
                 
                 stmt.executeUpdate();

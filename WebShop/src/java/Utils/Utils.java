@@ -9,6 +9,7 @@ import DAL.IRepo;
 import DAL.RepoFactory;
 import Model.BagItem;
 import Model.Customer;
+import Model.LogInfo;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +32,20 @@ public class Utils {
         return sum;
     }
     public static void createLog(String username,HttpServletRequest request){
-        
+        String ipAdress=request.getRemoteAddr();
+        String date=getTodaysDate();
+        IRepo repo=RepoFactory.getRepo();
+        int c=-1;
+        for (Customer customer : repo.getAllCustomers()) {
+            if (customer.getEmail().equals(username)) {
+                c=customer.getIDCustomer();
+            }
+        }
+        LogInfo logInfo=new LogInfo(c, date, ipAdress);
+        try {
+            repo.insertLogInfo(logInfo);
+        } catch (Exception e) {
+        }
     }
     public static boolean usernameUnique(String email){
         IRepo repo=RepoFactory.getRepo();

@@ -64,7 +64,7 @@ Quantity int
 CREATE TABLE LogInfo(
 IDLogInfo int primary key identity,
 CustomerID int foreign key references Customer(IDCustomer),
-LogDate date,
+LogDate nvarchar(50),
 IPAdress nvarchar(300)
 )
 

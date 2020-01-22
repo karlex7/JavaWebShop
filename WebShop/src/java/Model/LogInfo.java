@@ -14,16 +14,16 @@ import java.util.Date;
 public class LogInfo {
     private int IDLogInfo;
     private int CustomerID;
-    private Date LogDate;
+    private String LogDate;
     private String IPAdress;
 
-    public LogInfo(int CustomerID, Date LogDate, String IPAdress) {
+    public LogInfo(int CustomerID, String LogDate, String IPAdress) {
         this.CustomerID = CustomerID;
         this.LogDate = LogDate;
         this.IPAdress = IPAdress;
     }
 
-    public LogInfo(int IDLogInfo, int CustomerID, Date LogDate, String IPAdress) {
+    public LogInfo(int IDLogInfo, int CustomerID, String LogDate, String IPAdress) {
         this.IDLogInfo = IDLogInfo;
         this.CustomerID = CustomerID;
         this.LogDate = LogDate;
@@ -46,11 +46,11 @@ public class LogInfo {
         this.CustomerID = CustomerID;
     }
 
-    public Date getLogDate() {
+    public String getLogDate() {
         return LogDate;
     }
 
-    public void setLogDate(Date LogDate) {
+    public void setLogDate(String LogDate) {
         this.LogDate = LogDate;
     }
 
