@@ -41,5 +41,6 @@
                 </c:forEach>
             </div>
         </div>
+                <fri:footer></fri:footer>
     </body>
 </html>

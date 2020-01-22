@@ -24,5 +24,6 @@
             <h1>Welcome to Car Dealer</h1>
             <h3>We specialize in reselling used cars!</h3>
         </div>
+        <fri:footer></fri:footer>
     </body>
 </html>

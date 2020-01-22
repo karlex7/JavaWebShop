@@ -24,5 +24,6 @@
         <div class="row">
         <fri:product product="${product}"></fri:product>
         </div>
+        <fri:footer></fri:footer>
     </body>
 </html>
