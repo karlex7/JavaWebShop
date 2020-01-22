@@ -23,4 +23,17 @@ html{
 h1{
     margin-top: 50px;
 }
-
+.table-log{
+    width: 100%;
+}
+.table-log th, .table-log td {
+  border-bottom: 1px solid #ddd;
+}
+.table-log th {
+  text-align: left;
+  height: 50px;
+}
+.table-log td {
+  height: 50px;
+  vertical-align: bottom;
+}
