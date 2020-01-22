@@ -14,6 +14,7 @@
         <ul>
             <li><a href="home.jsp">Home</a></li>
             <li><a href="products">Products</a></li>
+            <li><a href="categories">categories</a></li>
             <li>
                 <c:if test="${sessionScope.admin != null}">
                     <a href="logging" id="btnAdmin" style="margin-right:5px" class="btn">Admin Page</a>
