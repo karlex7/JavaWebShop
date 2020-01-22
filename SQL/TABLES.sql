@@ -47,7 +47,7 @@ PaymentMethodName nvarchar(30)
 
 CREATE TABLE Bill(
 IDBill int primary key identity,
-BillDate date,
+BillDate nvarchar(50),
 CustomerID int foreign key references Customer(IDCustomer),
 PaymentMethodID int foreign key references PaymentMethod(IDPaymentMethod)
 )

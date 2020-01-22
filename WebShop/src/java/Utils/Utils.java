@@ -9,6 +9,9 @@ import DAL.IRepo;
 import DAL.RepoFactory;
 import Model.BagItem;
 import Model.Customer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,4 +56,10 @@ public class Utils {
         c.setFirstName("ime");
         return c;
     }
+        public static String getTodaysDate() {
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        return sdf.format(date);
+    }
+
 }

@@ -5,7 +5,9 @@
  */
 package Servlet;
 
+import DAL.RepoFactory;
 import Model.BagItem;
+import Model.PaymentMethod;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -26,6 +28,11 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //List<BagItem> bagSession=(List<BagItem>) request.getSession().getAttribute("bagSession");
+        List<PaymentMethod> paymentMethods=RepoFactory.getRepo().getAllPaymentMethods();
+        
+        request.getSession().setAttribute("paymentMethods", paymentMethods);
+        
         RequestDispatcher rd=getServletContext().getRequestDispatcher("/checkout.jsp");
         rd.forward(request, response);
     }

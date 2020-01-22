@@ -16,17 +16,17 @@ import java.util.Date;
  */
 public class Bill {
     private int IDBill;
-    private Date BillDate;
+    private String BillDate;
     private int CustomerID;
     private int PaymentMethodID;
 
-    public Bill(Date BillDate, int CustomerID, int PaymentMethodID) {
+    public Bill(String BillDate, int CustomerID, int PaymentMethodID) {
         this.BillDate = BillDate;
         this.CustomerID = CustomerID;
         this.PaymentMethodID = PaymentMethodID;
     }
 
-    public Bill(int IDBill, Date BillDate, int CustomerID, int PaymentMethodID) {
+    public Bill(int IDBill, String BillDate, int CustomerID, int PaymentMethodID) {
         this.IDBill = IDBill;
         this.BillDate = BillDate;
         this.CustomerID = CustomerID;
@@ -41,11 +41,11 @@ public class Bill {
         this.IDBill = IDBill;
     }
 
-    public Date getBillDate() {
+    public String getBillDate() {
         return BillDate;
     }
 
-    public void setBillDate(Date BillDate) {
+    public void setBillDate(String BillDate) {
         this.BillDate = BillDate;
     }
 
@@ -68,8 +68,9 @@ public class Bill {
     public String toStringBill(){
         String s="";
         Calendar calendar=Calendar.getInstance();
-        calendar.setTime(BillDate);
-        
+        Date date=new Date();
+        calendar.setTime(date);
+
         String year=String.valueOf(calendar.get(Calendar.YEAR));
         String month=String.valueOf(calendar.get(Calendar.MONTH));
         String day=String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));

@@ -37,6 +37,7 @@
             <div class="row btn-checkout">
                 <button class="btn btn-primary" onclick="checkout()">Checkout</button>
             </div>
+
         </div>
         
     </body>

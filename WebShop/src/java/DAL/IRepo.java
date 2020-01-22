@@ -27,7 +27,7 @@ public interface IRepo {
     List<PaymentMethod> getAllPaymentMethods();
     //---------------BILL----------------
     List<Bill> getAllBills();
-    void insertBill(Bill b);
+    void insertBill(Bill b, List<BagItem> bagItems);
     Bill getBill(int id);
     List<Bill> getBillsForCustomer(int id);
     //---------------ITEM----------------

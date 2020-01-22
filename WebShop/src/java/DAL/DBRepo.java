@@ -5,6 +5,7 @@
  */
 package DAL;
 
+import Model.BagItem;
 import Model.Bill;
 import Model.Category;
 import Model.Customer;
@@ -15,6 +16,7 @@ import Model.Product;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -37,7 +39,7 @@ public class DBRepo implements IRepo{
     private static final String GET_ALL_PAYMENT_METHODS="{ CALL  GET_ALL_PAYMENT_METHODS ()}";
     
     private static final String GET_ALL_BILLS="{ CALL  GET_ALL_BILLS ()}";
-    private static final String INSERT_BILL="{ CALL  INSERT_BILL (?,?,?)}";
+    private static final String INSERT_BILL="{ CALL  INSERT_BILL (?,?,?,?)}";
     private static final String GET_BILL="{ CALL  GET_BILL (?)}";
     private static final String GET_BILLS_FOR_CUSTOMER="{ CALL  GET_BILLS_FOR_CUSTOMER (?)}";
     
@@ -221,7 +223,7 @@ public class DBRepo implements IRepo{
                 bills.add(
                         new Bill(
                                 resultSet.getInt("IDBill"), 
-                                resultSet.getDate("BillDate"), 
+                                resultSet.getString("BillDate"), 
                                 resultSet.getInt("CustomerID"), 
                                 resultSet.getInt("PaymentMethodID"))
                 );
@@ -234,18 +236,33 @@ public class DBRepo implements IRepo{
     }
 
     @Override
-    public void insertBill(Bill b) {
-        DataSource dataSource=DataSourceSingleton.getInstance();
-        try (Connection con=dataSource.getConnection();
-            CallableStatement stmt=con.prepareCall(INSERT_BILL)){
-                stmt.setDate(1, (java.sql.Date) b.getBillDate());
-                stmt.setInt(2, b.getCustomerID());
-                stmt.setInt(3, b.getPaymentMethodID());
-                
-                stmt.executeUpdate();
+    public void insertBill(Bill b, List<BagItem> bagItems) {
+        int billID;
+
+        DataSource dataSource = DataSourceSingleton.getInstance();
+        try (Connection con = dataSource.getConnection();
+
+            CallableStatement stmt = con.prepareCall(INSERT_BILL)) {
+            stmt.setString(1, b.getBillDate());
+            stmt.setInt(2, b.getCustomerID());
+            stmt.setInt(3, b.getPaymentMethodID());
+            stmt.registerOutParameter(4, Types.INTEGER);
+
+            stmt.executeUpdate();
+            billID = stmt.getInt(4);
+
+            try(CallableStatement stmt2 = con.prepareCall(INSERT_ITEM)){
+                for (BagItem bi : bagItems) {
+                    stmt2.setInt(1, bi.getProduct().getIDProduct());
+                    stmt2.setInt(2, billID);
+                    stmt2.setInt(3, bi.getQuantity());
+                    stmt2.executeUpdate();
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -257,7 +274,7 @@ public class DBRepo implements IRepo{
             try (ResultSet resultSet=stmt.executeQuery()){
                 return new Bill(
                         resultSet.getInt("IDBill"), 
-                        resultSet.getDate("BillDate"), 
+                        resultSet.getString("BillDate"), 
                         resultSet.getInt("CustomerID"), 
                         resultSet.getInt("PaymentMethodID"));
             }
@@ -279,7 +296,7 @@ public class DBRepo implements IRepo{
                 bills.add(
                         new Bill(
                                 resultSet.getInt("IDBill"), 
-                                resultSet.getDate("BillDate"), 
+                                resultSet.getString("BillDate"), 
                                 resultSet.getInt("CustomerID"), 
                                 resultSet.getInt("PaymentMethodID"))
                 );

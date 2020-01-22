@@ -115,10 +115,12 @@ go
 CREATE PROC INSERT_BILL
 @BillDate date,
 @CustomerID int,
-@PaymentMethodID int
+@PaymentMethodID int,
+@id int output
 as
 Insert into Bill(BillDate,CustomerID,PaymentMethodID)
-Values(@BillDate,@CustomerID,@PaymentMethodID)
+Values(@BillDate,@CustomerID,@PaymentMethodID);
+select @id=SCOPE_IDENTITY()
 go
 
 CREATE PROC GET_BILL

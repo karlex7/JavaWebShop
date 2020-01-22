@@ -20,3 +20,6 @@ function showBag(){
 function viewBill(IDBill){
     location.href="viewBill?idBill"+IDBill;
 }
+function orderSuccessfulCash(){
+    location.href="orderSuccessfull";
+}

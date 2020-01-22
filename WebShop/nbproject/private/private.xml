@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Model/Bill.java</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/products.jsp</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/WEB-INF/tags/bill.tag</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/WEB-INF/tags/product.tag</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Servlet/ProductsServlet.java</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/user.jsp</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Model/Product.java</file>
-            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Servlet/UserServlet.java</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Model/BagItem.java</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/js/script.js</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Servlet/CheckoutServlet.java</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/src/java/Servlet/AddToBaggServlet.java</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/bag.jsp</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/WEB-INF/tags/productcheckout.tag</file>
+            <file>file:/C:/Users/FRIDAY/Documents/JAVA%20WebShop/WebShop/web/checkout.jsp</file>
         </group>
     </open-files>
 </project-private>
