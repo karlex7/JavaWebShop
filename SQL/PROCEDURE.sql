@@ -167,7 +167,7 @@ go
 
 CREATE PROC INSERT_LOGINFO
 @CustomerID int,
-@LogDate date,
+@LogDate nvarchar(50),
 @IPAdress nvarchar(300)
 as
 Insert into LogInfo(CustomerID,LogDate,IPAdress)

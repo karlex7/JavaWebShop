@@ -13,11 +13,10 @@
 <div class="bill">
     <p><b>Bill No: </b> ${bill.IDBill} &nbsp; | &nbsp; <b>Date:</b> ${bill.billDate} &nbsp;|&nbsp;<b>Payment method:</b>
         <c:choose>
-            <c:when test="${bill.paymentMethodID == 0}">Paypal</c:when>
-            <c:when test="${bill.paymentMethodID == 1}">Cash</c:when>
+            <c:when test="${bill.paymentMethodID == 1}">Paypal</c:when>
+            <c:when test="${bill.paymentMethodID == 2}">Cash</c:when>
             <c:otherwise>Bitcoin</c:otherwise>
         </c:choose>
-            &nbsp;|&nbsp; 
             <form action="viewBill" method="post">
                 <input type="hidden" name="idBill" value="${bill.IDBill}"/>
                 <button type="submit" class="btn btn-primary" style="margin-left: 20px">View items</button>

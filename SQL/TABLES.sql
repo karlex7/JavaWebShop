@@ -60,7 +60,6 @@ BillID int foreign key references Bill(IDBill),
 Quantity int
 )
 
-
 CREATE TABLE LogInfo(
 IDLogInfo int primary key identity,
 CustomerID int foreign key references Customer(IDCustomer),
